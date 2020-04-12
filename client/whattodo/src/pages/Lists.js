@@ -1,8 +1,8 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import Edit from "../Components/Edit";
 
-function Edit(props) {
+
+function Lists(props) {
 
   if (props.user) {
     return <Redirect to="/home" />
@@ -10,9 +10,9 @@ function Edit(props) {
   
   return (
     <div>
-      
+      <h2> yeah</h2>
     </div>
   );
 }
 
-export default Edit;
+export default Lists;

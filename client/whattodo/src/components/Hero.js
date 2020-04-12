@@ -4,15 +4,15 @@ import { Button, Typography } from "@material-ui/core";
 
 function Hero() {
     return (
-        <div className="info">
-          <Typography
-            variant="h1">
-    //what eveer i call this
-          </Typography>
-          <Typography
-            variant="h4">
-              Keep track of your life
-          </Typography>
+        <div className="info">        
+          <br></br>
+          <br></br>
+          <h1>
+            Keep track of your life
+          </h1>
+          <br></br>
+          <br></br>
+          <br></br>
           <Button
             className="btn"
             variant="contained"
@@ -23,6 +23,23 @@ function Hero() {
             >
               Try It Today!
           </Button>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
         </div>
     );
   }

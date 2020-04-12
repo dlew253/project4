@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import Hero from "../Components/Hero";
+import Hero from "../components/Hero";
 
 function Landing(props) {
 

@@ -12,19 +12,9 @@ import Link from '@material-ui/core/Link';
 
 
 function Login(props) {
-  const useStyles = makeStyles(theme => ({
-    root: {
-      height: '90vh', 
-    },
-    image: {
-        //Image asset goes here. might reuse one for all pre-auth
-      backgroundImage: `url(${})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
-    },
+  const useStyles = makeStyles((theme) => ({
     paper: {
-      marginTop: theme.spacing(8,4),
+      marginTop: theme.spacing(8),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -34,23 +24,17 @@ function Login(props) {
       backgroundColor: theme.palette.secondary.main,
     },
     form: {
-      width: '80%', 
-      marginTop: theme.spacing(3),
-      padding: theme.spacing(1)
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(1),
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-    topFields: {
-      maxWidth: "48.9%",
-      flexBasis: "48.9%"
-    },
-    spacing: {
-      margin: "0.25em"
-    }
   }));
   
-  const classes = useStyles()
+
+    const classes = useStyles();
+  
 
   // Declare and initialize state variables
   let [email, setEmail] = useState('')
@@ -97,44 +81,35 @@ function Login(props) {
   }
 
   return (
-    <Grid container component="main" className={classes.root}>
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Grid item xs={false} sm={3} md={6} className={classes.image} />
-      <Grid item xs={12} sm={9} md={6} elevation={6}>
-      <div className={`${classes.paper}`}>
-        <Typography component="h1" variant="h3" gutterBottom>
-          Welcome Back
+      <div className={classes.paper}>
+        <Typography component="h1" variant="h5">
+          Sign in
         </Typography>
-        <Typography variant="h6">
-          Get on that grind, baby!
-        </Typography>
-        <span className="red">{message}</span>
-        <form className={classes.form} onSubmit={handleSubmit}>
-        <Grid container className={classes.topRow}>
-            <Grid item xs={12}>
-            <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                onChange={e => setEmail(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                onChange={e => setPassword(e.target.value)}
-              />
-            </Grid>
-          </Grid>
+        <form className={classes.form} noValidate>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            
+          />
+
           <Button
             type="submit"
             fullWidth
@@ -142,20 +117,32 @@ function Login(props) {
             color="primary"
             className={classes.submit}
           >
-            Get s**t done
+            Sign In
           </Button>
-          <Grid container justify="flex-end">
+          <Grid container>
             <Grid item>
-              <Link to="/signup" variant="body2">
+              <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
             </Grid>
           </Grid>
         </form>
       </div>
-    </Grid>
-    </Grid>
+    </Container>
   );
 }
 
 export default Login;
+
+

@@ -11,41 +11,23 @@ import { Redirect } from 'react-router-dom';
 
   const useStyles = makeStyles((theme) => ({
     root: {
-      height: '90vh',
+      height: '85vh',
     },
-    image: {
-        //come back here to put in a good image 
-        //i think centered and large is going to look good
-        //professional is the goal
-      backgroundImage: `url(${})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
-    },
-    paper: {
-      marginTop: theme.spacing(8,4),
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    form: {
-      width: '100%', 
-      marginTop: theme.spacing(1)
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-    },
-    topRow: {
-      justifyContent: "space-between"
-    },
-    topFields: {
-      maxWidth: "47.9%",
-      flexBasis: "48.9%"
-    },
-    spacing: {
-      margin: "0.25em"
-    }
-  }));
+
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
 
 const SignUp = props => {
     const classes = useStyles()
@@ -97,9 +79,10 @@ const SignUp = props => {
     }
 
   return (
+    <div class='signup'>
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={3} md={6} className={classes.image} />
+      <Grid item xs={false} sm={3}  className={classes.image} />
       <Grid item xs={12} sm={9} md={6} elevation={6} square>
       <div className={`${classes.paper}`}>     
         <Typography component="h2" variant="h4" gutterBottom>
@@ -109,7 +92,7 @@ const SignUp = props => {
         <span className="red">{message}</span>
         <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container className={classes.topRow}>
-            <Grid item xs={12} sm={5} className={`${classes.spacing} ${classes.topFields}`}>
+            <Grid item xs={12} sm={6} className={`${classes.spacing} ${classes.topFields}`}>
               <TextField
                 name="firstname"
                 variant="outlined"
@@ -118,10 +101,11 @@ const SignUp = props => {
                 id="firstName"
                 label="First Name"
                 autoFocus
-                onChange={e => setFirstname(e.target.value)}
+                onSubmit={e => setFirstname(e.target.value)}
               />
             </Grid>
-            <Grid item xs={12} sm={5} className={`${classes.spacing} ${classes.topFields}`}>
+            <br></br>
+            <Grid item xs={12} sm={6} className={`${classes.spacing} ${classes.topFields}`}>
               <TextField
                 variant="outlined"
                 required
@@ -129,7 +113,7 @@ const SignUp = props => {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
-                onChange={e => setLastname(e.target.value)}
+                onSubmit={e => setLastname(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}  className={classes.spacing}>
@@ -140,7 +124,7 @@ const SignUp = props => {
                 id="email"
                 label="Email Address"
                 name="email"
-                onChange={e => setEmail(e.target.value)}
+                onSubmit={e => setEmail(e.target.value)}
                 />
             </Grid>
             <Grid item xs={12}  className={classes.spacing}>
@@ -152,7 +136,7 @@ const SignUp = props => {
                 label="Password"
                 type="password"
                 id="password"
-                onChange={e => setPassword(e.target.value)}
+                onSubmit={e => setPassword(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -176,7 +160,7 @@ const SignUp = props => {
         </div>
       </Grid>
     </Grid>
-   
+    </div>
   );
 };
 

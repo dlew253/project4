@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { AppBar, Toolbar, Button } from "@material-ui/core";
-import Searchbar from "./Searchbar";
 import Logo from "./Logo";
 
 
@@ -18,8 +17,7 @@ function Postnav(props) {
     return (
       <AppBar position="static">
         <Toolbar>
-          <Logo link="/" />
-          <Searchbar />
+          <Logo link='/'/>
           <Button
             color="inherit"
             component={Link}
@@ -34,4 +32,5 @@ function Postnav(props) {
   }
   
   export default Postnav;
-
+//bring back up later
+//<Logo link="/" />

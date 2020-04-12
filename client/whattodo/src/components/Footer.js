@@ -7,7 +7,7 @@ function Footer() {
       <footer className="footer">
         <Container maxWidth="lg">
           <Grid container>
-            <Grid item md={6}>
+            <Grid item xs={3}>
               <Typography 
                 variant="subtitle2">
                   Copyright © 2020 Dylan Lewis

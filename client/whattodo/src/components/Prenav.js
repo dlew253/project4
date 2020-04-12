@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-//import Logo from "./Logo";
+import Logo from "./Logo";
 //gotta ask chris for a logo
 function PreNav() {
   
@@ -11,7 +11,7 @@ function PreNav() {
     <div>
       <AppBar position="static">
         <Toolbar>
-          <Logo link="/" />
+          <Logo link='/'/>
           <Button 
             color="inherit"
             component={Link}

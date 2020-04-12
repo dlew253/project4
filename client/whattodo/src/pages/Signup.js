@@ -1,8 +1,8 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import Signup from "../Components/Signup";
+import Signup from "../components/Signup";
 
-function Signup(props) {
+function UserSignup(props) {
 
   if (props.user) {
     return <Redirect to="/home" />
@@ -10,7 +10,7 @@ function Signup(props) {
   
   return (
     <div>
-        <UserSignUp user={props.user} updateUser={props.updateUser}/>
+        <UserSignup user={props.user} updateUser={props.updateUser}/>
     </div>
   );
 }
