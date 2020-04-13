@@ -60,7 +60,7 @@ deleteItem(key){
   }
   render(){
     return (
-      <div className='App'>      
+      <div className='pad'>      
         <header>
           <form id='note' onSubmit={this.addItem}>
             <input type='text' placeholder="Get Started" value={this.state.currentItem.text} onChange={this.handleInput}/>

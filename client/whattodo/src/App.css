@@ -2,11 +2,16 @@ body {
   background-color: bisque;
 }
 .pad {
-  background-color: #ff2929;
+  background-color: #d4d4d4;
+  text-align: center;
   min-height: 500px;
   width: 400px;
   margin: 40px auto;
+  border-radius: 15px;
+  padding: 5px;
+  border: 0;
 }
+
 #note input{
   border: 2px solid black;
   width: 200px;
