@@ -1,18 +1,18 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import Notepad from "../components/Notepad"
+import EditProfile from "../components/EditProfile";
 
-function New(props) {
+function Edit(props) {
 
   if (props.user) {
     return <Redirect to="/home" />
   }
   
   return (
-    <div className='notepad'>
-      <Notepad/>
+    <div className="edit">
+      <EditProfile />
     </div>
   );
 }
 
-export default New;
+export default Edit;

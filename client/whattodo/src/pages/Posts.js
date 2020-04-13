@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 
-function Lists(props) {
+function Posts(props) {
 
   if (props.user) {
     return <Redirect to="/home" />
@@ -10,9 +10,9 @@ function Lists(props) {
   
   return (
     <div>
-      <h2> yeah</h2>
+      <h2> Under Construction</h2>
     </div>
   );
 }
 
-export default Lists;
+export default Posts;

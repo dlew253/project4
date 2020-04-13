@@ -5,7 +5,7 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_cors import CORS
 
 app=Flask(__name__)
-CORS(app)
+
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
@@ -16,6 +16,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 db = SQLAlchemy(app)
+app.app_context().push()
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -25,7 +26,7 @@ class User(db.Model):
     password = db.Column(db.String, nullable=False)
     firstname = db.Column(db.String, nullable=False)
     lastname = db.Column(db.String, nullable=False)
-
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='SET NULL')))
     posts = db.relationship('Post', lazy=True)
 
     def __repr__(self):
@@ -37,6 +38,9 @@ class User(db.Model):
             'firstname': self.firstname,
             'lastname': self.lastname
         }
+    def as_dict(self):
+        user_dict = {c.firstname: getattr(self, c.firstname) for c in self.__table__.columns}
+        del user_dict['password']
         return user_dict
 
     def set_password(self, password):
@@ -57,8 +61,23 @@ class Post(db.Model):
     title = db.Column(db.String(150), unique=True, nullable=False)
     date = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='SET NULL'))
     body = db.Column(db.String(2000), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user_id'), nullable='false')
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', onDelete='SET NULL'), nullable='false')
 
     def __repr__(self):
-      return f'User(id={self.id}, email="{self.email}", display_name="{self.display_name}")'
+      return f'Post(id={self.id}, title={self.title}, date={self.date}, user_id={self.user_id})'
 
+    def as_dict(self):
+      return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+def get_or_create(model, defaults=None, **kwargs):
+    instance = db.session.query(model).filter_by(**kwargs).first()
+    if instance:
+        return instance, False
+    else:
+        params = dict((k, v) for k, v in kwargs.items())
+        params.update(defaults or {})
+        instance = model(**params)
+        db.session.add(instance)
+        db.session.commit()
+        return instance, True
