@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Redirect } from "react-router-dom";
-import { Typography, Grid, Avatar } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+//import { makeStyles } from "@material-ui/core/styles";
 
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  }, 
-  header: {
-    color: theme.palette.primary.main,
-    fontWeight: "bold",
-    marginTop: "1em",
-    marginLeft: "1em"
-  }
-}));
+//const useStyles = makeStyles(theme => ({
+//  root: {
+//    flexGrow: 1
+//  }, 
+//  header: {
+//    color: theme.palette.primary.main,
+//    fontWeight: "bold",
+//    marginTop: "1em",
+//    marginLeft: "1em"
+//  }
+//}));
 
 function Home(props) {
 

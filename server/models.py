@@ -27,9 +27,9 @@ class User(db.Model):
     lastname = db.Column(db.String, nullable=False)
 
     posts = db.relationship('Post', lazy=True)
-    pass
+
     def __repr__(self):
-      return 'User(id="{self.id}", email="{self.email}", name="{self.name}")'
+      return f'User(email="{self.email}", firstname="{self.firstname}", lastname="{self.lastname}")'
     def as_dict(self):
         user_dict = {
             'id': self.id,
@@ -54,9 +54,10 @@ class Post(db.Model):
     __tablename__ = 'posts'
 
     id = db.Column(db.Integer, primary_key=True)
-    header = db.Column(db.String(150), unique=True, nullable=False)
+    title = db.Column(db.String(150), unique=True, nullable=False)
     date = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='SET NULL'))
     body = db.Column(db.String(2000), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user_id'), nullable='false')
 
     def __repr__(self):
       return f'User(id={self.id}, email="{self.email}", display_name="{self.display_name}")'

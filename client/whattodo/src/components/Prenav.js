@@ -20,6 +20,7 @@ function PreNav() {
             color="inherit"
             component={Link}
             to="/signup">Sign Up</Button>
+          
         </Toolbar>
       </AppBar>
     </div>

@@ -46,7 +46,7 @@ const SignUp = props => {
   
     const handleSubmit = e => {
       e.preventDefault()
-      fetch(`${process.env.REACT_APP_SERVER_URL}/auth/signup`,{
+      fetch(`${process.env.REACT_APP_SERVER_URL}/components/signup`,{
         method: 'POST',
         body: JSON.stringify({
           firstname,
@@ -79,11 +79,11 @@ const SignUp = props => {
     }
 
   return (
-    <div class='signup'>
+    <div className='signup'>
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={3}  className={classes.image} />
-      <Grid item xs={12} sm={9} md={6} elevation={6} square>
+      <Grid item xs={12} sm={9} md={6} elevation={6} square='true'>
       <div className={`${classes.paper}`}>     
         <Typography component="h2" variant="h4" gutterBottom>
          <br></br> Never forget a thing again!

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Button } from "@material-ui/core";
 import Logo from "./Logo";
 
@@ -23,6 +23,14 @@ function Postnav(props) {
             component={Link}
             to="/profile">User</Button>
           <Button
+            color='inherent'
+            component={Link}
+            to='/New'>New</Button>
+          <Button
+            color='inherent'
+            component={Link}
+            to='/Lists'>My Lists</Button>
+          <Button
             color="inherit"
             component={Link}
             to="/" onClick={handleLogout}>Logout</Button>
@@ -32,5 +40,3 @@ function Postnav(props) {
   }
   
   export default Postnav;
-//bring back up later
-//<Logo link="/" />

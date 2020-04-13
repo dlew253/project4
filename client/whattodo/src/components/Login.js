@@ -49,7 +49,7 @@ function Login(props) {
   const handleSubmit = e => {
     e.preventDefault()
     // make a fetch request to get route of the server to check for authentication
-    fetch(`${process.env.REACT_APP_SERVER_URL}/auth/login`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/components/login`, {
       method: 'POST',
       body: JSON.stringify({
         email,
@@ -87,7 +87,8 @@ function Login(props) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <span className="red">{message}</span>
+        <form className={classes.form} onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -96,7 +97,7 @@ function Login(props) {
             id="email"
             label="Email Address"
             name="email"
-
+            onChange={e => setEmail(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -107,7 +108,7 @@ function Login(props) {
             label="Password"
             type="password"
             id="password"
-            
+            onChange={e => setPassword(e.target.value)}
           />
 
           <Button

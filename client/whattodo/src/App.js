@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect} from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router} from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Prenav from "./components/Prenav";
@@ -52,7 +52,7 @@ function App() {
       <div className="App">
         <ThemeProvider theme={theme}>
         <div className="navigation">{setNav()}</div>
-        <div className="content"><Content updateUser={updateUser} user={user}/></div>
+        <div className="content"><Content updateUser={updateUser} user={user} token={token} setUserToken={setUserToken}/></div>
         <Footer/>
         </ThemeProvider>
       </div>
